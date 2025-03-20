@@ -3,25 +3,25 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   perspective: 1000px;
 }
 
 .scoreCard {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 150px;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 16px;
   background: linear-gradient(
     145deg,
     var(--color-background-light),
     var(--color-background)
   );
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1),
-    inset 0 -5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-style: preserve-3d;
   position: relative;
@@ -29,30 +29,31 @@
 }
 
 .scoreCard:hover {
-  transform: translateY(-5px) rotateX(5deg);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1),
-    inset 0 -5px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.1),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.05);
 }
 
 .playerBadge {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   position: relative;
   z-index: 1;
 }
 
 .playerIcon {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -60,57 +61,23 @@
 .playerXBadge .playerIcon {
   background: linear-gradient(135deg, #4a80f5, #1a56f0);
   color: white;
-  box-shadow: 0 5px 15px rgba(26, 86, 240, 0.5),
-    inset 0 -3px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(26, 86, 240, 0.5),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .playerOBadge .playerIcon {
   background: linear-gradient(135deg, #f54a4a, #f01a1a);
   color: white;
-  box-shadow: 0 5px 15px rgba(240, 26, 26, 0.5),
-    inset 0 -3px 4px rgba(0, 0, 0, 0.2);
-}
-
-.playerXBadge .playerIcon:before,
-.playerOBadge .playerIcon:before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  z-index: -1;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.playerXBadge .playerIcon:before {
-  background: radial-gradient(
-    circle,
-    rgba(74, 128, 245, 0.8) 0%,
-    rgba(26, 86, 240, 0) 70%
-  );
-}
-
-.playerOBadge .playerIcon:before {
-  background: radial-gradient(
-    circle,
-    rgba(245, 74, 74, 0.8) 0%,
-    rgba(240, 26, 26, 0) 70%
-  );
-}
-
-.scoreCard:hover .playerIcon:before {
-  opacity: 1;
+  box-shadow: 0 3px 8px rgba(240, 26, 26, 0.5),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .label {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.25rem;
+  letter-spacing: 0.5px;
+  margin-top: 0;
 }
 
 .playerXBadge .label {
@@ -127,44 +94,28 @@
     rgba(0, 0, 0, 0.2),
     rgba(0, 0, 0, 0.05)
   );
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
   position: relative;
   overflow: hidden;
-  width: 100%;
   display: flex;
   justify-content: center;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.scoreDisplay:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.5),
-    transparent
-  );
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .digitContainer {
   display: flex;
   justify-content: center;
-  gap: 2px;
+  gap: 1px;
 }
 
 .digit {
   font-family: "Digital-7", "Orbitron", monospace, sans-serif;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
-  padding: 0 0.25rem;
+  padding: 0 0.15rem;
   position: relative;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
   display: inline-block;
   transform-style: preserve-3d;
   transform: translateZ(0);
@@ -173,12 +124,35 @@
 
 .xDigits .digit {
   color: var(--color-player-x);
-  text-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 8px rgba(59, 130, 246, 0.3);
 }
 
 .oDigits .digit {
   color: var(--color-player-o);
-  text-shadow: 0 0 5px rgba(239, 68, 68, 0.5), 0 0 10px rgba(239, 68, 68, 0.3);
+  text-shadow: 0 0 5px rgba(239, 68, 68, 0.5), 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+.vsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.vsCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .winAnimation {
@@ -191,55 +165,6 @@
 
 .shake {
   animation: scoreShake 0.5s ease;
-}
-
-.vsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  position: relative;
-}
-
-.vsCircle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.vsCircle:before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  animation: rotateLighting 8s linear infinite;
-}
-
-@keyframes rotateLighting {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes victoryPulse {
@@ -288,7 +213,6 @@
   }
 }
 
-/* 3D lighting effect */
 .scoreCard:after {
   content: "";
   position: absolute;
@@ -305,7 +229,6 @@
   pointer-events: none;
 }
 
-/* Responsiveness */
 @media (max-width: 768px) {
   .scoreContainer {
     gap: 0.5rem;
@@ -313,23 +236,23 @@
 
   .scoreCard {
     width: 120px;
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .playerIcon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+    width: 25px;
+    height: 25px;
+    font-size: 1.25rem;
   }
 
   .digit {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .vsCircle {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
   }
 }
 
@@ -340,26 +263,26 @@
 
   .scoreCard {
     width: 100px;
-    padding: 0.5rem;
+    padding: 0.35rem 0.5rem;
   }
 
   .playerIcon {
-    width: 36px;
-    height: 36px;
-    font-size: 1.25rem;
+    width: 22px;
+    height: 22px;
+    font-size: 1rem;
   }
 
   .label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .digit {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 
   .vsCircle {
-    width: 30px;
-    height: 30px;
-    font-size: 0.75rem;
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
   }
 }
