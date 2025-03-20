@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Game.module.css";
 import Board from "../Board/Board";
@@ -6,11 +6,11 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import ScoreCounter from "../ScoreCounter/ScoreCounter";
 import { useGameLogic } from "../../hooks/useGameLogic";
-import { useModal } from "../../hooks/useModal";
 
 const Game = () => {
   const navigate = useNavigate();
-  const { isOpen, modalContent, openModal, closeModal } = useModal();
+  const [modalOpen, setModalOpen] = useState(false);
+
   const {
     board,
     currentPlayer,
@@ -48,50 +48,48 @@ const Game = () => {
     return null;
   };
 
-  // show game result modal when game ends
+  // open modal when game ends
   useEffect(() => {
     if (gameOver) {
-      const content = (
-        <div className={styles.resultModal}>
-          {winner ? <h3>Player {winner} wins!</h3> : <h3>It's a draw!</h3>}
-
-          <div className={styles.scoreDisplay}>
-            <div>
-              <span className={styles.playerX}>Player X:</span> {scores.X}
-            </div>
-            <div>
-              <span className={styles.playerO}>Player O:</span> {scores.O}
-            </div>
-          </div>
-
-          <div className={styles.modalActions}>
-            <Button
-              onClick={() => {
-                resetGame();
-                closeModal();
-              }}
-            >
-              Play Again
-            </Button>
-            <Button variant="secondary" onClick={() => navigate("/")}>
-              Back to Home
-            </Button>
-          </div>
-        </div>
-      );
-
-      openModal(content);
+      setModalOpen(true);
     }
-  }, [
-    gameOver,
-    winner,
-    isDraw,
-    scores,
-    resetGame,
-    openModal,
-    closeModal,
-    navigate,
-  ]);
+  }, [gameOver]);
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handlePlayAgain = () => {
+    closeModal();
+    resetGame();
+  };
+
+  const handleBackToHome = () => {
+    closeModal();
+    navigate("/");
+  };
+
+  const renderModalContent = () => (
+    <div className={styles.resultModal}>
+      {winner ? <h3>Player {winner} wins!</h3> : <h3>It's a draw!</h3>}
+
+      <div className={styles.scoreDisplay}>
+        <div>
+          <span className={styles.playerX}>Player X:</span> {scores.X}
+        </div>
+        <div>
+          <span className={styles.playerO}>Player O:</span> {scores.O}
+        </div>
+      </div>
+
+      <div className={styles.modalActions}>
+        <Button onClick={handlePlayAgain}>Play Again</Button>
+        <Button variant="secondary" onClick={handleBackToHome}>
+          Back to Home
+        </Button>
+      </div>
+    </div>
+  );
 
   return (
     <div className={styles.container}>
@@ -127,8 +125,12 @@ const Game = () => {
         </Button>
       </div>
 
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        {modalContent}
+      <Modal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        title={winner ? `Player ${winner} wins!` : "It's a draw!"}
+      >
+        {renderModalContent()}
       </Modal>
     </div>
   );
