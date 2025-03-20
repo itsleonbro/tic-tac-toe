@@ -4,6 +4,7 @@ import styles from "./Game.module.css";
 import Board from "../Board/Board";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
+import ScoreCounter from "../ScoreCounter/ScoreCounter";
 import { useGameLogic } from "../../hooks/useGameLogic";
 import { useModal } from "../../hooks/useModal";
 
@@ -95,14 +96,7 @@ const Game = () => {
   return (
     <div className={styles.container}>
       <div className={styles.gameInfo}>
-        <div className={styles.scoreBoard}>
-          <div className={`${styles.score} ${styles.playerX}`}>
-            X: {scores.X}
-          </div>
-          <div className={`${styles.score} ${styles.playerO}`}>
-            O: {scores.O}
-          </div>
-        </div>
+        <ScoreCounter scores={scores} />
 
         <div className={styles.turn}>
           {!gameOver && (
