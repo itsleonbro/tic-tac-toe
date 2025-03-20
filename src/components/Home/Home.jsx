@@ -13,6 +13,11 @@ const Home = () => {
     navigate("/game");
   };
 
+  const startGameFromModal = () => {
+    closeModal();
+    navigate("/game");
+  };
+
   const showInstructions = () => {
     openModal(
       <div className={styles.instructions}>
@@ -27,7 +32,7 @@ const Home = () => {
           </li>
           <li>If the grid is filled without a winner, the game is a draw.</li>
         </ol>
-        <Button onClick={startGame} fullWidth>
+        <Button onClick={startGameFromModal} fullWidth>
           Start Playing Now
         </Button>
       </div>
