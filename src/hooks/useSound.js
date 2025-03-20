@@ -11,9 +11,9 @@ export function useSound() {
   const drawSound = useRef(null);
 
   useEffect(() => {
-    clickSound.current = new Audio("/sounds/click.mp3");
-    winSound.current = new Audio("/sounds/win.mp3");
-    drawSound.current = new Audio("/sounds/draw.mp3");
+    clickSound.current = new Audio("/sounds/click.wav");
+    winSound.current = new Audio("/sounds/win.wav");
+    drawSound.current = new Audio("/sounds/draw.wav");
 
     // preload sounds
     clickSound.current.load();
