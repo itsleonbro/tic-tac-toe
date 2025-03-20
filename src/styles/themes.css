@@ -1,0 +1,20 @@
+/* dark theme  */
+body[data-theme="dark"] {
+  --color-background: #1a202c;
+  --color-background-light: #2d3748;
+  --color-background-hover: #4a5568;
+  --color-text: #f7fafc;
+  --color-text-light: #a0aec0;
+  --color-border: #4a5568;
+
+  --color-primary: #7f9cf5;
+  --color-primary-dark: #5a67d8;
+  --color-secondary: #4a5568;
+  --color-secondary-dark: #2d3748;
+
+  --color-player-x: #63b3ed;
+  --color-player-o: #fc8181;
+
+  --color-winning: rgba(72, 187, 120, 0.3);
+  --color-winning-rgb: 72, 187, 120;
+}

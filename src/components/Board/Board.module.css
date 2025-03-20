@@ -1,0 +1,23 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .board {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    max-width: 300px;
+    gap: 5px;
+  }
+}

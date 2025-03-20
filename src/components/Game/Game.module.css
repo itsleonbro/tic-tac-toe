@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gameInfo {
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.scoreBoard {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: var(--color-background-light);
+}
+
+.playerX {
+  color: var(--color-player-x);
+}
+
+.playerO {
+  color: var(--color-player-o);
+}
+
+.turn h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--color-text);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.resultModal {
+  text-align: center;
+}
+
+.resultModal h3 {
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.scoreDisplay {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .scoreBoard {
+    gap: 1rem;
+  }
+
+  .score {
+    font-size: 1rem;
+  }
+
+  .turn h2 {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,20 @@
+:root {
+  /* light theme  */
+  --color-background: #f5f7fa;
+  --color-background-light: #ffffff;
+  --color-background-hover: #e9ecef;
+  --color-text: #2d3748;
+  --color-text-light: #718096;
+  --color-border: #e2e8f0;
+
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-secondary: #e2e8f0;
+  --color-secondary-dark: #cbd5e0;
+
+  --color-player-x: #3b82f6;
+  --color-player-o: #ef4444;
+
+  --color-winning: rgba(72, 187, 120, 0.5);
+  --color-winning-rgb: 72, 187, 120;
+}
